@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Financial Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.0/css/bulma.css" />
+</head>
+
+
+<body>
+    <nav class="navbar hero is-dark is-bold has-text-centered" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <h1 class="title has-text-weight-normal is-1 has-text-white">
+                    Django-Bokeh-AlphaVantage
+                </h1>
+            </a>
+        </div>
+    </nav>
+    <section class="container">
+        <div class="columns">
+            <div class="column">
+
+            </div>
+            <div class="column is-6">
+                {{ div | safe }}
+            </div>
+            <div class="column">
+
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/1.4.0/bokeh.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bokeh/1.4.0/bokeh-widgets.min.js"></script>
+    {{ script | safe }}
+</body>
+
+</html>
