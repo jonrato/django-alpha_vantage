@@ -6,25 +6,29 @@ from math import pi
 import datetime
 from .utils import get_data, convert_to_df
 
+
 def homepage(request):
-    result = get_data('EUR', 'USD', 'You_own_api_key') #add your APIKEY
+    
+    #We use get_data method from utils
+
+    result = get_data('EUR','USD', 'Your API')
+
     source = convert_to_df(result)
 
     increasing = source.close > source.open
     decreasing = source.open > source.close
-    w = 12 * 60 * 60 * 1000
-
+    w = 12*60*60*1000
+    print(source)
     TOOLS = "pan, wheel_zoom, box_zoom, reset, save"
 
     title = 'EUR to USD chart'
 
     p = figure(x_axis_type="datetime", tools=TOOLS, plot_width=700, plot_height=500, title = title)
     p.xaxis.major_label_orientation = pi / 4
-
+    
     p.grid.grid_line_alpha = 0.3
-
+    
     p.segment(source.date, source.high, source.date, source.low, color="black")
-
     p.vbar(source.date[increasing], w, source.open[increasing], source.close[increasing],
         fill_color="#D5E1DD", line_color="black"
     )
